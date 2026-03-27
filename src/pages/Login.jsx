@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Login (){
     return(
         <div className="flex flex-col items-center justify-center h-screen w-full bg-background p-5">
@@ -20,7 +22,7 @@ function Login (){
                         <input type="email" placeholder="name@company.com" className="border p-3  rounded-lg border-dark/25 w-full"/>
                     </label>
                     <label className="flex flex-col gap-2">
-                        <p className="flex justify-between font-bold"><span className="text-sm"> Password</span> <span className="text-xs text-principal">Forgot password?</span></p>
+                        <p className="flex justify-between font-bold"><span className="text-sm"> Password</span> <Link className="text-xs text-principal cursor-pointer">Forgot password?</Link></p>
                         <div className="border p-3  rounded-lg border-dark/25 w-full flex">
                         <input type="password" placeholder="•••••••" className="outline-none w-full"/>
                         <svg width="24" height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70">
@@ -31,10 +33,10 @@ function Login (){
     
                     </label>
                     <label className="flex border-dark/70">
-                        <input type="checkbox" className=" accent-principal"/>
+                        <input type="checkbox" className=" accent-principal cursor-pointer"/>
                         <p className="text-sm pl-1">Remember for 30 days</p>
                     </label>
-                    <button className="bg-principal text-light font-bold flex items-center justify-center gap-2 p-2 rounded-lg">Sign In
+                    <button className="bg-principal text-light font-bold flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-principal/80 cursor-pointer">Sign In
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 sm:hidden" >
                             <path d="M20.0014 11.9966L4 11.9966M14.0054 6L20.0014 11.9998L14.0054 18" stroke="#fff"/>
                         </svg>
@@ -45,15 +47,15 @@ function Login (){
                     <p className="text-xs text-dark/70 text-center px-px">OR CONTINUE WITH</p>
                     <div className="border-t border-dark/25 "></div>
                 </div>
-                <button className="flex border border-dark/25 py-2 w-full items-center justify-center gap-2 rounded-lg my-5">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg " className="w-6 h-6 fill-dark/80 sm:fill-principal ">
+                <button className="flex border border-dark/25 py-2 w-full items-center justify-center gap-2 rounded-lg my-5 hover:bg-dark/5 cursor-pointer">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg " className="w-6 h-6 fill-dark/80 sm:fill-principal">
                         <path d="M21.5939 11.0792H12.3209V13.8256H18.9768C18.6214 17.6382 15.5196 19.286 12.5148 19.286C8.70223 19.286 5.30969 16.3135 5.30969 12.0162C5.30969 7.88057 8.54068 4.74651 12.5148 4.74651C15.5519 4.74651 17.3936 6.71741 17.3936 6.71741L19.2676 4.74651C19.2676 4.74651 16.7474 2.00016 12.3856 2.00016C6.6344 1.96785 2.24023 6.78203 2.24023 11.9839C2.24023 17.0243 6.37592 22 12.4825 22C17.8783 22 21.7554 18.349 21.7554 12.8886C21.7877 11.7578 21.5939 11.0792 21.5939 11.0792Z" />
                     </svg>
                     <p className="font-bold text-sm text-dark/80">Sign in with Google</p>
                 </button>
                 <div className="border-t border-dark/25 w-full my-5"></div>
-                <p className="text-xs font-bold flex gap-1">Don't have an account? <span className="text-principal sm:hidden">Start free trial</span> <span className="text-principal hidden sm:block">Create an account</span></p>
-                <div className="p-1 bg-gradient-to-r  from-principal via-principal/55 via-50% to-principal w-full absolute bottom-0 hidden sm:block"></div>
+                <p className="text-xs font-bold flex gap-1">Don't have an account? <span className="text-principal sm:hidden">Start free trial</span> <Link className="text-principal hidden sm:block ">Create an account</Link></p>
+                <div className="p-1 bg-linear-to-r from-principal via-principal/55 via-50% to-principal w-full absolute bottom-0 hidden sm:block"></div>
             </main>
         </div>
     )
