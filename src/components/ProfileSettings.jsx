@@ -8,10 +8,10 @@ function ProfileSettings (){
                     </svg>
                     <div>
                         <h2 className="font-bold text-lg">Profile Settings</h2>
-                        <p className="hidden sm:block">Manage your public identity</p>
+                        <p className="hidden sm:block text-sm font-semibold text-dark/70">Manage your public identity</p>
                     </div>
                 </div>
-                <form className="flex flex-col gap-2">
+                <form className="flex flex-col gap-3">
                     <label>
                         <p className="font-semibold text-sm">Full Name</p>
                         <input type="text" placeholder="Name" className="border p-2 w-full rounded-sm border-dark/20"/>
@@ -20,7 +20,7 @@ function ProfileSettings (){
                         <p className="font-semibold text-sm">Email Address</p>
                         <input type="email" placeholder="Email" className="border p-2 w-full  rounded-sm border-dark/20"/>
                     </label>
-                    <div className="flex justify-end sm:justify-between items-center">
+                    <div className="flex justify-end sm:justify-between items-center mt-5">
                         <p className="hidden sm:block italic font-semibold text-sm text-dark/40">Last update: <span>2</span> days ago</p>
                         <button className="bg-principal py-2 px-4 text-light font-semibold rounded-lg text-sm">Save Changes</button>
                     </div>
