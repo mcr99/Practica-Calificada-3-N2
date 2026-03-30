@@ -6,3 +6,5 @@
   --color-dark: #000;
   --color-light: #fff;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));

@@ -1,13 +1,16 @@
 function AppPreferences () {
+    function changeToDarkMode(){
+        document.documentElement.classList.toggle("dark")
+    }
     return(
-        <section className="bg-light shadow-xs p-5 rounded-2xl flex flex-col gap-5">
+        <section className="bg-light dark:bg-dark/40 shadow-xs p-5 rounded-2xl flex flex-col gap-5">
             <div className="flex items-center gap-2">
-                <svg viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="fill-principal bg-principal/20 p-1 w-11 rounded-xl">
+                <svg viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="fill-principal bg-principal/20 dark:bg-principal/40 p-1 w-11 rounded-xl">
                     <path d="M3.39854 12.1458C2.33012 11.5289 1.96404 10.1627 2.5809 9.09428L4.09689 6.4685C4.71388 5.39984 6.08042 5.03388 7.14894 5.65079C7.63842 5.9334 8.25011 5.58009 8.25011 5.01524C8.25011 3.78144 9.2503 2.78125 10.4841 2.78125H13.5165C14.7502 2.78125 15.7501 3.78149 15.7501 5.01502C15.7501 5.57981 16.3615 5.93263 16.8503 5.65041C17.9185 5.03366 19.2845 5.39967 19.9012 6.46792L21.4176 9.09435C22.0345 10.1628 21.6684 11.5289 20.6 12.1458C20.1108 12.4282 20.1108 13.1343 20.6 13.4167C21.6684 14.0336 22.0344 15.3998 21.4176 16.4682L19.9012 19.0946C19.2845 20.1629 17.9185 20.5289 16.8503 19.9121C16.3615 19.6299 15.7501 19.9827 15.7501 20.5475C15.7501 21.781 14.7502 22.7812 13.5165 22.7812H10.4841C9.2503 22.7812 8.25011 21.7811 8.25011 20.5473C8.25011 19.9824 7.63844 19.6291 7.14896 19.9117C6.08044 20.5286 4.71391 20.1627 4.09692 19.094L2.58092 16.4682C1.96407 15.3998 2.33013 14.0336 3.39856 13.4168C3.88776 13.1343 3.88777 12.4282 3.39854 12.1458ZM11.9992 8.94618C9.88118 8.94618 8.16419 10.6632 8.16419 12.7812C8.16419 14.8992 9.88118 16.6162 11.9992 16.6162C14.1172 16.6162 15.8342 14.8992 15.8342 12.7812C15.8342 10.6632 14.1172 8.94618 11.9992 8.94618Z"/>
                 </svg>
                 <div>
                     <h2 className="font-bold text-lg">App Preferences</h2>
-                    <p className="hidden sm:block text-sm font-semibold text-dark/70">Customize your workspace experience</p>
+                    <p className="hidden sm:block text-sm font-semibold text-dark/70 dark:text-light/70">Customize your workspace experience</p>
                 </div>
             </div>
             <article className="flex items-center gap-2 justify-between">
@@ -17,11 +20,14 @@ function AppPreferences () {
                         <span className="hidden sm:block">Theme Mode</span>
                         </h3>
 
-                    <p className="text-dark/70 text-sm font-semibold">Switch between light and dark themes</p>
+                    <p className="text-dark/70 dark:text-light/70 text-sm font-semibold">Switch between light and dark themes</p>
                 </div>
-                <div className="flex bg-background p-1 rounded-lg sm:rounded-4xl shadow"> {/* missing to add change*/}
-                    <div className="flex bg-light p-2 rounded-lg sm:rounded-4xl shadow items-center justify-center gap-0.5">
-                        <svg viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" className="w-5 fill-dark">
+                {/*######################*/}
+                <label className="flex bg-background dark:bg-dark p-1 rounded-lg sm:rounded-4xl shadow relative cursor-pointer">
+                    <input type="checkbox" className="sr-only peer" onClick={changeToDarkMode}/>
+                    <div className="w-17 h-9 rounded-lg  sm:rounded-full bg-light dark:bg-light/10 shadow peer-checked:translate-x-17 duration-500 absolute top-1"></div>
+                    <div className="flex p-2 rounded-lg sm:rounded-4xl items-center justify-center gap-0.5 z-10">
+                        <svg viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" className="w-5 fill-dark dark:fill-light/50">
                             <path d="M12 2.625C12.4142 2.625 12.75 2.96079 12.75 3.375V4.875C12.75 5.28921 12.4142 5.625 12 5.625C11.5858 5.625 11.25 5.28921 11.25 4.875V3.375C11.25 2.96079 11.5858 2.625 12 2.625Z" />
                             <path d="M6.5 12.625C6.5 9.58743 8.96243 7.125 12 7.125C15.0376 7.125 17.5 9.58743 17.5 12.625C17.5 15.6626 15.0376 18.125 12 18.125C8.96243 18.125 6.5 15.6626 6.5 12.625Z"/>
                             <path d="M19.0713 6.61627C19.3642 6.32337 19.3642 5.8485 19.0713 5.55561C18.7785 5.26271 18.3036 5.26271 18.0107 5.55561L16.95 6.61627C16.6571 6.90916 16.6571 7.38403 16.95 7.67693C17.2429 7.96982 17.7178 7.96982 18.0107 7.67693L19.0713 6.61627Z" />
@@ -32,19 +38,20 @@ function AppPreferences () {
                             <path d="M5 12.625C5 13.0392 4.66421 13.375 4.25 13.375H2.75C2.33579 13.375 2 13.0392 2 12.625C2 12.2108 2.33579 11.875 2.75 11.875H4.25C4.66421 11.875 5 12.2108 5 12.625Z"/>
                             <path d="M5.9892 7.67096C6.28209 7.96385 6.75697 7.96385 7.04986 7.67096C7.34275 7.37806 7.34275 6.90319 7.04986 6.6103L5.9892 5.54963C5.69631 5.25674 5.22143 5.25674 4.92854 5.54963C4.63565 5.84253 4.63565 6.3174 4.92854 6.61029L5.9892 7.67096Z" />
                         </svg>
-                        <p className="text-sm font-semibold">Light</p>
+                        <p className="text-sm font-semibold dark:text-light/50">Light</p>
                     </div>
-                    <div className="flex p-2 rounded-lg sm:rounded-4xl items-center justify-center gap-0.5">
-                        <svg viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 fill-dark/50">
+                    <div className="flex p-2 rounded-lg sm:rounded-4xl items-center justify-center gap-0.5 z-10">
+                        <svg viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 fill-dark/50 dark:fill-light">
                             <path d="M14.5548 2.45451C14.232 2.36944 13.8918 2.50796 13.7203 2.79431C13.5487 3.08067 13.5871 3.44595 13.8144 3.69042C15.0185 4.98559 15.7539 6.71956 15.7539 8.62696C15.7539 12.6321 12.5071 15.8789 8.50196 15.8789C6.59455 15.8789 4.86059 15.1435 3.56542 13.9394C3.32095 13.7121 2.95567 13.6737 2.66931 13.8453C2.38296 14.0168 2.24444 14.357 2.32951 14.6798C3.45868 18.9646 7.3593 22.125 12 22.125C17.5229 22.125 22 17.6479 22 12.125C22 7.48431 18.8396 3.58368 14.5548 2.45451Z"/>
                         </svg>
-                        <p className="text-sm font-semibold text-dark/70">Dark</p>
+                        <p className="text-sm font-semibold text-dark/70 dark:text-light">Dark</p>
                     </div>
-                </div>
+                </label>
+                {/*######################*/ }
             </article>
             <article className="flex justify-between">
                 <div className="flex gap-2">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 w-6 hidden sm:block">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 dark:fill-light/70 w-6 hidden sm:block">
                         <path fillRule="evenodd" clipRule="evenodd" d="M2.00312 12.1255C2.07025 17.59 6.52083 22.0001 12.0014 22.0001C17.5238 22.0001 22.0005 17.5224 22.0005 12.0002C22.0005 6.49245 17.5473 2.02384 12.0449 2.00038C12.0304 2.00013 12.0158 2 12.0012 2C11.9866 2 11.972 2.00013 11.9574 2.00038C6.49755 2.02389 2.07089 6.42415 2.00314 11.8733C2.00106 11.9151 2 11.9572 2 11.9996C2 12.0418 2.00105 12.0838 2.00312 12.1255ZM8.97906 8.97712C8.83291 9.91428 8.75196 10.9319 8.75196 11.9996C8.75196 13.0674 8.83291 14.0849 8.97906 15.0221C9.91569 15.168 10.9326 15.2489 11.9996 15.2489C13.0679 15.2489 14.086 15.1678 15.0235 15.0216C15.1696 14.0845 15.2505 13.0671 15.2505 11.9996C15.2505 10.932 15.1696 9.91466 15.0235 8.97764C14.086 8.83136 13.0679 8.75032 11.9996 8.75032C10.9326 8.75032 9.91568 8.83117 8.97906 8.97712ZM7.419 9.29819C7.30981 10.1594 7.25196 11.0661 7.25196 11.9996C7.25196 12.9331 7.30981 13.8398 7.419 14.701C6.8082 14.5418 6.25021 14.3524 5.75696 14.1391C4.976 13.8015 4.39155 13.4187 4.01306 13.0318C3.66763 12.6787 3.52335 12.3559 3.50265 12.072C3.50245 12.0481 3.50235 12.0242 3.50235 12.0002C3.50235 11.9758 3.50245 11.9514 3.50266 11.927C3.5234 11.6432 3.66769 11.3204 4.01306 10.9674C4.39155 10.5805 4.976 10.1978 5.75696 9.86009C6.25021 9.64683 6.8082 9.45746 7.419 9.29819ZM9.30032 7.4171C10.1609 7.30808 11.0669 7.25032 11.9996 7.25032C12.9336 7.25032 13.8407 7.30824 14.7023 7.41753C14.5431 6.8073 14.3538 6.24981 14.1407 5.75696C13.8031 4.976 13.4203 4.39155 13.0335 4.01306C12.6606 3.64825 12.3214 3.5078 12.0263 3.50032L12.0014 3.50028L11.9761 3.50032C11.6811 3.50781 11.3419 3.64827 10.969 4.01306C10.5821 4.39155 10.1994 4.976 9.86173 5.75696C9.64869 6.24969 9.45948 6.80704 9.30032 7.4171ZM16.5836 9.29907C16.6927 10.16 16.7505 11.0664 16.7505 11.9996C16.7505 12.9328 16.6927 13.8392 16.5836 14.7001C17.1931 14.5411 17.7499 14.352 18.2422 14.1391C19.0232 13.8015 19.6077 13.4187 19.9862 13.0318C20.3613 12.6483 20.4992 12.3005 20.4992 11.9996C20.4992 11.6987 20.3613 11.3509 19.9862 10.9674C19.6077 10.5805 19.0232 10.1978 18.2422 9.86009C17.7499 9.64723 17.1931 9.45816 16.5836 9.29907ZM14.7023 16.5817C13.8407 16.691 12.9336 16.7489 11.9996 16.7489C11.0669 16.7489 10.1609 16.6911 9.30032 16.5821C9.45948 17.1922 9.64869 17.7495 9.86173 18.2422C10.1994 19.0232 10.5821 19.6077 10.969 19.9862C11.3525 20.3613 11.7003 20.4992 12.0012 20.4992C12.3021 20.4992 12.65 20.3613 13.0335 19.9861C13.4203 19.6077 13.8031 19.0232 14.1407 18.2422C14.3538 17.7494 14.5431 17.1919 14.7023 16.5817ZM7.69311 16.3082C6.76016 16.1055 5.90633 15.8379 5.16168 15.5159C4.75227 15.3389 4.36866 15.1424 4.01951 14.9265C4.87777 17.2671 6.73603 19.1253 9.07661 19.9833C8.85983 19.6332 8.66253 19.2484 8.48491 18.8375C8.16319 18.0934 7.89575 17.2403 7.69311 16.3082ZM16.3095 16.3074C17.2411 16.1048 18.0938 15.8375 18.8375 15.5159C19.2488 15.3381 19.634 15.1406 19.9844 14.9236C19.1265 17.2657 17.2675 19.1252 14.9258 19.9835C15.1426 19.6333 15.3399 19.2484 15.5176 18.8375C15.8394 18.0932 16.1069 17.2399 16.3095 16.3074ZM19.9838 9.07529C19.6336 8.85838 19.2485 8.66098 18.8375 8.48327C18.0938 8.16171 17.2411 7.89437 16.3095 7.69177C16.1069 6.75934 15.8394 5.90596 15.5176 5.16168C15.3402 4.75137 15.1431 4.36698 14.9267 4.01722C17.2675 4.87548 19.1258 6.7342 19.9838 9.07529ZM7.69311 7.69102C6.76016 7.89372 5.90632 8.16132 5.16168 8.48327C4.75248 8.66019 4.36906 8.85663 4.02005 9.0724C4.87844 6.73282 6.73604 4.87536 9.0757 4.01737C8.85927 4.3671 8.66228 4.75144 8.48491 5.16168C8.16319 5.90577 7.89575 6.75888 7.69311 7.69102Z"/>
                     </svg>
                     <p className="font-semibold">Interface Language</p>
@@ -57,29 +64,30 @@ function AppPreferences () {
             </article>
             <article className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <svg viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 w-6 hidden sm:block">
+                    <svg viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 dark:fill-light/70 w-6 hidden sm:block">
                         <path d="M12.7516 3.00098C12.7516 2.58676 12.4158 2.25098 12.0016 2.25098C11.5874 2.25098 11.2516 2.58676 11.2516 3.00098V3.78801C7.46161 4.1643 4.5016 7.36197 4.5016 11.251V14.365L3.80936 16.2109C3.25776 17.6819 4.34514 19.251 5.9161 19.251H18.0871C19.658 19.2509 20.7454 17.6819 20.1938 16.2109L19.5016 14.365V11.251C19.5016 7.36197 16.5416 4.1643 12.7516 3.78801V3.00098Z" />
                         <path d="M14.8735 20.251H9.1261C9.55865 21.418 10.6823 22.2495 11.9998 22.2495C13.3173 22.2495 14.441 21.418 14.8735 20.251Z"/>
                     </svg>
                     <div>
                         <h3 className="font-semibold">Email Notifications</h3>
-                        <p className="text-dark/70 text-sm font-semibold sm:hidden">Receive weekly analytics reports</p>
+                        <p className="text-dark/70 dark:text-light/70 text-sm font-semibold sm:hidden">Receive weekly analytics reports</p>
                     </div>
                 </div>
-                <div>
-                    switch 
-                </div>
+                <label className="rounded-2xl w-10 flex items-center p-1 bg-principal cursor-pointer">
+                    <input type="checkbox" className="sr-only peer" />
+                    <div className="w-4 rounded-full bg-white dark:bg-dark h-4 peer-checked:translate-x-4 duration-500"></div>
+                </label>
             </article>
             <article className="flex gap-2 sm:hidden justify-between">
                 <div>
                     <h3 className="font-semibold">Two-Factor Authentication</h3>
-                    <p className="text-dark/70 text-sm font-semibold">Secure your account with 2FA</p>
+                    <p className="text-dark/70 dark:text-light/70 text-sm font-semibold">Secure your account with 2FA</p>
                 </div>
                 <div className="flex items-center justify-center">
-                    <button className="bg-background px-2 py-1 rounded-lg shadow font-semibold">Enable</button>
+                    <button className="bg-background dark:bg-dark dark:hover:ring-1 dark:border dark:border-light/30 px-2 py-1 rounded-lg shadow font-semibold cursor-pointer">Enable</button>
                 </div>
-            </article>
-            <button className="bg-background py-2 rounded-md shadow font-semibold">Reset to Default</button>
+            </article> 
+            <button className="bg-background dark:bg-dark dark:border dark:border-light/30  dark:hover:ring-1 py-2 rounded-md shadow font-semibold cursor-pointer hover:bg-dark/10">Reset to Default</button>
         </section>
     )
 }

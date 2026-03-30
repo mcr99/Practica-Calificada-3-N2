@@ -6,11 +6,11 @@ import InfoDesktop from "../components/InfoDesktop"
 
 function Profile () {
     return(
-        <main className="p-5 bg-background flex flex-col gap-10">
+        <main className="p-5 bg-background dark:bg-dark/90 dark:text-background flex flex-col gap-10">
             <div>
-                <h1 className="text-2xl font-bold">Welcome back, <span>Alex</span></h1>
-                <p className="sm:hidden text-dark/70 font-semibold text-sm">Manage your account settings and preferences here.</p>
-                <p className="hidden sm:block text-dark/70 font-semibold text-sm">Here's what's happening with your workspace today.</p>
+                <h1 className="text-2xl font-bold" >Welcome back, <span>Alex</span></h1>
+                <p className="sm:hidden text-dark/70 dark:text-background/70 font-semibold text-sm">Manage your account settings and preferences here.</p>
+                <p className="hidden sm:block text-dark/70 dark:text-background/70 font-semibold text-sm">Here's what's happening with your workspace today.</p>
             </div>
             <div className="flex flex-col md:grid md:grid-cols-2 gap-10">
                 <ProfileSettings/>

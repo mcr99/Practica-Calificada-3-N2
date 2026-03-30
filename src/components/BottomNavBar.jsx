@@ -2,37 +2,37 @@ import { Link } from "react-router-dom"
 
 function BottonNavBar(){
     return(
-        <nav className="sticky bottom-0 flex items-center justify-between bg-light p-5 sm:hidden">
+        <nav className="sticky bottom-0 flex items-center justify-between border-t border-dark/10 dark:border-light/10 bg-light dark:bg-dark/95 p-5 sm:hidden">
             <Link className="flex flex-col justify-center items-center group">
-                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 group-hover:fill-principal">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 dark:fill-light/70 group-hover:fill-principal">
                     <path d="M3.25 6C3.25 4.75736 4.25736 3.75 5.5 3.75H9C10.2426 3.75 11.25 4.75736 11.25 6V9.49998C11.25 10.7426 10.2426 11.75 9 11.75H5.5C4.25736 11.75 3.25 10.7426 3.25 9.49998V6Z"/>
                     <path d="M3.25 15.5C3.25 14.2574 4.25736 13.25 5.5 13.25H9C10.2426 13.25 11.25 14.2574 11.25 15.5V19C11.25 20.2426 10.2426 21.25 9 21.25H5.5C4.25736 21.25 3.25 20.2426 3.25 19V15.5Z" />
                     <path d="M12.75 6C12.75 4.75736 13.7574 3.75 15 3.75H18.5C19.7426 3.75 20.75 4.75736 20.75 6V9.49998C20.75 10.7426 19.7426 11.75 18.5 11.75H15C13.7574 11.75 12.75 10.7426 12.75 9.49998V6Z" />
                     <path d="M12.75 15.5C12.75 14.2574 13.7574 13.25 15 13.25H18.5C19.7426 13.25 20.75 14.2574 20.75 15.5V19C20.75 20.2426 19.7426 21.25 18.5 21.25H15C13.7574 21.25 12.75 20.2426 12.75 19V15.5Z" />
                 </svg>
-                <p className="text-xs text-dark/70 group-hover:text-principal">Dashboard</p>
+                <p className="text-xs text-dark/70 dark:text-light/70 group-hover:text-principal">Dashboard</p>
             </Link>
             <Link className="flex flex-col justify-center items-center group">
-                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 group-hover:fill-principal">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 dark:fill-light/70 group-hover:fill-principal">
                     <path d="M7 10.7773C5.89543 10.7773 5 11.6728 5 12.7773V16.2501C5 16.6643 5.33579 17.0001 5.75 17.0001H8.25C8.66421 17.0001 9 16.6643 9 16.2501V12.7773C9 11.6728 8.10457 10.7773 7 10.7773Z" />
                     <path d="M12.5 5C11.3954 5 10.5 5.89543 10.5 7V16.2501C10.5 16.6643 10.8358 17.0001 11.25 17.0001H13.75C14.1642 17.0001 14.5 16.6643 14.5 16.2501V7C14.5 5.89543 13.6046 5 12.5 5Z"/>
                     <path d="M18 8.55859C16.8954 8.55859 16 9.45402 16 10.5586V16.2501C16 16.6643 16.3358 17.0001 16.75 17.0001H19.25C19.6642 17.0001 20 16.6643 20 16.2501V10.5586C20 9.45402 19.1046 8.55859 18 8.55859Z"/>
                 </svg>
-                <p className="text-xs text-dark/70 group-hover:text-principal">Analytics</p>
+                <p className="text-xs text-dark/70 dark:text-light/70 group-hover:text-principal">Analytics</p>
             </Link>
             <Link className="flex flex-col justify-center items-center group">
-                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 group-hover:fill-principal">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 dark:fill-light/70 group-hover:fill-principal">
                     <path d="M3.39854 12.1458C2.33012 11.5289 1.96404 10.1627 2.5809 9.09428L4.09689 6.4685C4.71388 5.39984 6.08042 5.03388 7.14894 5.65079C7.63842 5.9334 8.25011 5.58009 8.25011 5.01524C8.25011 3.78144 9.2503 2.78125 10.4841 2.78125H13.5165C14.7502 2.78125 15.7501 3.78149 15.7501 5.01502C15.7501 5.57981 16.3615 5.93263 16.8503 5.65041C17.9185 5.03366 19.2845 5.39967 19.9012 6.46792L21.4176 9.09435C22.0345 10.1628 21.6684 11.5289 20.6 12.1458C20.1108 12.4282 20.1108 13.1343 20.6 13.4167C21.6684 14.0336 22.0344 15.3998 21.4176 16.4682L19.9012 19.0946C19.2845 20.1629 17.9185 20.5289 16.8503 19.9121C16.3615 19.6299 15.7501 19.9827 15.7501 20.5475C15.7501 21.781 14.7502 22.7812 13.5165 22.7812H10.4841C9.2503 22.7812 8.25011 21.7811 8.25011 20.5473C8.25011 19.9824 7.63844 19.6291 7.14896 19.9117C6.08044 20.5286 4.71391 20.1627 4.09692 19.094L2.58092 16.4682C1.96407 15.3998 2.33013 14.0336 3.39856 13.4168C3.88776 13.1343 3.88777 12.4282 3.39854 12.1458ZM11.9992 8.94618C9.88118 8.94618 8.16419 10.6632 8.16419 12.7812C8.16419 14.8992 9.88118 16.6162 11.9992 16.6162C14.1172 16.6162 15.8342 14.8992 15.8342 12.7812C15.8342 10.6632 14.1172 8.94618 11.9992 8.94618Z"/>
                 </svg>
-                <p className="text-xs text-dark/70 group-hover:text-principal">Settings</p>
+                <p className="text-xs text-dark/70 dark:text-light/70 group-hover:text-principal">Settings</p>
 
             </Link>
             <Link className="flex flex-col justify-center items-center group">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 group-hover:fill-principal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 dark:fill-light/70 group-hover:fill-principal">
                     <path d="M12.0672 2C9.6678 2 7.72266 3.94514 7.72266 6.34459C7.72266 8.74404 9.6678 10.6892 12.0672 10.6892C14.4667 10.6892 16.4118 8.74404 16.4118 6.34459C16.4118 3.94514 14.4667 2 12.0672 2Z"/>
                     <path d="M20.25 19.453C20.2421 19.8615 19.9087 20.1895 19.5001 20.1895H4.50013C4.09157 20.1895 3.75818 19.8624 3.75027 19.454L3.75023 19.452L3.75019 19.4493L3.7501 19.4423L3.75 19.4211C3.74999 19.404 3.75015 19.3807 3.75072 19.3516C3.75187 19.2937 3.75468 19.2127 3.76117 19.1119C3.77413 18.9107 3.80189 18.6292 3.86099 18.2937C3.97867 17.6258 4.22374 16.7262 4.73808 15.8194C5.79641 13.9537 7.92408 12.1895 12.0001 12.1895C16.0762 12.1895 18.2038 13.9537 19.2622 15.8194C19.7765 16.7262 20.0216 17.6258 20.1393 18.2937C20.1984 18.6292 20.2261 18.9107 20.2391 19.1119C20.2456 19.2127 20.2484 19.2937 20.2495 19.3516C20.2501 19.3807 20.2503 19.404 20.2503 19.4211L20.2502 19.4423L20.2501 19.4493L20.25 19.452L20.25 19.453Z"/>
                 </svg>
-                <p className="text-xs text-dark/70 group-hover:text-principal">Account</p>
+                <p className="text-xs text-dark/70 dark:text-light/70 group-hover:text-principal">Account</p>
 
             </Link>
         </nav>
