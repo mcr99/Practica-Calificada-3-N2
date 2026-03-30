@@ -12,8 +12,10 @@ function Profile () {
                 <p className="sm:hidden text-dark/70 font-semibold text-sm">Manage your account settings and preferences here.</p>
                 <p className="hidden sm:block text-dark/70 font-semibold text-sm">Here's what's happening with your workspace today.</p>
             </div>
-            <ProfileSettings/>
-            <AppPreferences/>
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-10">
+                <ProfileSettings/>
+                <AppPreferences/>
+            </div>
             <InfoMobile/>
             <InfoDesktop/>
         </main>
