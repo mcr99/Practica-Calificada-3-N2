@@ -10,6 +10,7 @@ function App() {
   return (
     <>
       <Header/>
+      <Login/>
       <Profile/>
       <Footer/>
       <BottonNavBar/>
