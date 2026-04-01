@@ -1,6 +1,34 @@
-import { Link } from "react-router-dom"
+import { useContext, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../context/AuthContext"
 
 function Login (){
+    const [form, setForm] = useState({
+        email:"",
+        password:"",
+    })
+
+    const {login} = useContext(AuthContext)
+
+    const navigate = useNavigate()
+
+    function handleChange(e){
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    function handleSubmit(e){
+        e.preventDefault()
+        const success = login(form.email, form.password)
+        if(success){
+            navigate("/profile")
+        }else{
+            alert("Incorrecto")
+        }
+    }
+
     return(
         <div className="flex flex-col items-center justify-center h-screen w-full bg-background dark:bg-dark/90 p-5">
             <main className=" bg-light dark:bg-dark/40 dark:text-light flex flex-col items-center justify-center rounded-xl shadow-lg p-5 w-full max-w-100 relative overflow-hidden">
@@ -13,18 +41,18 @@ function Login (){
     
                 <h1 className="text-4xl font-bold mb-2">Welcome back</h1>
                 <p className="text-dark/70 dark:text-light/70">Please enter your details to sign in</p>
-                <form className="flex flex-col my-10 gap-5 w-full">
+                <form className="flex flex-col my-10 gap-5 w-full" onSubmit={handleSubmit}>
                     <label className="flex flex-col gap-2">
                         <p className="flex font-bold text-sm">
                             <span className="pr-1">Email</span> 
                             <span className="hidden sm:block">address</span>
                         </p>
-                        <input type="email" placeholder="name@company.com" className="border p-3  rounded-lg border-dark/25 dark:border-light/25 w-full"/>
+                        <input type="email" placeholder="name@company.com" className="border p-3  rounded-lg border-dark/25 dark:border-light/25 w-full" name="email" onChange={handleChange}/>
                     </label>
                     <label className="flex flex-col gap-2">
                         <p className="flex justify-between font-bold"><span className="text-sm"> Password</span> <Link className="text-xs text-principal cursor-pointer">Forgot password?</Link></p>
                         <div className="border p-3  rounded-lg border-dark/25 dark:border-light/25 w-full flex">
-                        <input type="password" placeholder="•••••••" className="outline-none w-full"/>
+                        <input type="password" placeholder="•••••••" className="outline-none w-full" name="password" onChange={handleChange}/>
                         <svg width="24" height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 dark:fill-light/70">
                             <path d="M9.125 12.375C9.125 10.7872 10.4122 9.5 12 9.5C13.5878 9.5 14.875 10.7872 14.875 12.375C14.875 13.9628 13.5878 15.25 12 15.25C10.4122 15.25 9.125 13.9628 9.125 12.375Z" />
                             <path d="M2.27757 11.1101C3.97429 7.43132 7.68801 4.875 11.9999 4.875C16.3119 4.875 20.0256 7.43133 21.7223 11.1101C22.0924 11.9125 22.0924 12.8377 21.7223 13.6402C20.0256 17.3189 16.3119 19.8752 11.9999 19.8752C7.68801 19.8752 3.97428 17.3189 2.27757 13.6402C1.90748 12.8377 1.90748 11.9125 2.27757 11.1101ZM7.625 12.375C7.625 14.7912 9.58375 16.75 12 16.75C14.4162 16.75 16.375 14.7912 16.375 12.375C16.375 9.95875 14.4162 8 12 8C9.58375 8 7.625 9.95875 7.625 12.375Z" />
@@ -36,7 +64,7 @@ function Login (){
                         <input type="checkbox" className=" accent-principal cursor-pointer"/>
                         <p className="text-sm pl-1">Remember for 30 days</p>
                     </label>
-                    <button className="bg-principal text-light font-bold flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-principal/80 cursor-pointer">Sign In
+                    <button className="bg-principal text-light font-bold flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-principal/80 cursor-pointer" type="submit">Sign In
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 sm:hidden" >
                             <path d="M20.0014 11.9966L4 11.9966M14.0054 6L20.0014 11.9998L14.0054 18" stroke="#fff"/>
                         </svg>

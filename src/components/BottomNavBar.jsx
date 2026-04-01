@@ -1,7 +1,13 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { AuthContext } from "../context/AuthContext"
 
 function BottonNavBar(){
+    const {user} = useContext(AuthContext)
+
     return(
+        <>
+        {user &&(
         <nav className="sticky bottom-0 flex items-center justify-between border-t border-dark/10 dark:border-light/10 bg-light dark:bg-dark/95 p-5 sm:hidden">
             <Link className="flex flex-col justify-center items-center group">
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="fill-dark/70 dark:fill-light/70 group-hover:fill-principal">
@@ -36,6 +42,8 @@ function BottonNavBar(){
 
             </Link>
         </nav>
+        )}
+        </>
     )
 }
 
